@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/my.css">
+</head>
+<body>
+	<div id="app">
+		<navhead :navarr="navarr" :active="0"></navhead>
+
+
+	</div>
+
+	
+
+	<!-- 组件 -->
+	<template id="nav">
+		<header>
+			<ul>
+				<li class="nav" v-for="(item, key, index) in navarr" :class="{'active':active == key}"><a href="">{{item.name}}</a><span class="slider-nav"></span></li>
+			</ul>
+		</header>
+	</template>
+
+
+</body>
+<script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript" src="node_modules/vue-resource/dist/vue-resource.js"></script>
+<script>
+
+	Vue.component('navhead',{
+			template: '#nav',
+			props:['navarr','active']
+	});
+
+	new Vue({
+		el:'#app',
+		data:{
+			navarr:[],
+			title:"hello"
+		},
+		mounted(){
+			//请求数据
+			this.getData();
+		},
+		methods:{
+			getData(){
+			  // GET /someUrl
+			  this.$http.get('http://localhost:8080/navlist').then(response => {
+			 	
+			    // get body data
+			 	this.navarr=response.body;
+			 	console.log(response.body);
+			  }, response => {
+			    // error callback
+			    	alert("error");
+			  });
+			}
+		}
+	})
+</script>
+</html>
