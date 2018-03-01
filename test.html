@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body,html{
+			padding: 0px;
+			margin: 0px;
+			height: 100%;
+			width: 100%;
+		}
+		header{
+			padding: 0px;
+			margin: 0px;
+			height: 35px;
+			border-bottom: solid 1px black;
+		}
+		.father-nav>li{
+			position: relative;
+			left: 0px;
+			top: 0px;
+			width: 150px;
+			display: block;
+			float: left;
+			color: black;
+			height: 35px;
+		}
+		.father-nav>li a:link{
+			color: black;
+			text-decoration: none;
+		}
+		.father-nav:after{
+		   content:".";/*加一段内容*/
+		   display:block;/*让生成的元素以块级元素显示，占满剩余空间*/
+		   height:0;/*避免生成的内容破坏原有布局高度*/
+		   clear:both;/*清除浮动*/
+		   visibility:hidden;/*让生成的内容不可见*/
+		}
+		.child-nav{
+			display: none;
+		}
+		.father-nav>li:hover .child-nav{
+			display: block;
+		}
+		.child-nav{
+			padding: 0px;
+			position: absolute;
+			top: 35px;
+		}
+		.child-nav:hover .child-nav{
+			display: block;
+		}
+		.child-nav>li{
+
+			padding: 5px;
+			display: block;
+			border-bottom: solid 1px black;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<ul class="father-nav">
+			<li>
+				<a href="#">Home</a>
+				<ul class="child-nav">
+					<li>java</li>
+					<li>php</li>
+					<li>Node</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Home</a>
+				<ul class="child-nav">
+					<li>java</li>
+					<li>php</li>
+					<li>Node</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Home</a>
+				<ul class="child-nav">
+					<li>java</li>
+					<li>php</li>
+					<li>Node</li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+</body>
+</html>
