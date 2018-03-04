@@ -22,7 +22,7 @@
 	<template id="nav">
 		<header>
 			<ul>
-				 <li class="nav" v-for="(item, key, index) in navarr"  v-bind:class="{'active':acactive == key}" v-on:click="ck(key)"><router-link :to="item.to">{{item.name}}<span class="slider-nav"></span></router-link></li>
+				 <li class="nav" v-for="(item, key, index) in navarr"  v-bind:class="{'active':acactive == key}" v-on:click="ck(key)"><router-link :to="item.template">{{item.name}}<span class="slider-nav"></span></router-link></li>
 			</ul>
 		</header>
 	</template>
